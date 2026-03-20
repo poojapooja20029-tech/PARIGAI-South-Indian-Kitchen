@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Parigai — South Indian Kitchen</title>
+  <link rel="stylesheet" href="style.css" />
+  <!-- Google Fonts: Fraunces (display) + DM Sans (body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,800;1,9..144,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- ========= NAVBAR ========= -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="#home" class="nav-logo">
+        <span class="logo-leaf">🌿</span> Parigai
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#home" class="nav-link">Home</a></li>
+        <li><a href="#menu" class="nav-link">Menu</a></li>
+        <li><a href="#features" class="nav-link">Why Us</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <button class="cart-btn" id="cartBtn" aria-label="Open cart">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+        <span class="cart-count" id="cartCount">0</span>
+      </button>
+      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ========= HERO ========= -->
+  <section id="home" class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <span class="hero-badge">Est. 2005 · Chennai's Finest</span>
+      <h1 class="hero-title">
+        Rooted in Tradition,<br>
+        <em>Blooming with Health</em>
+      </h1>
+      <p class="hero-sub">Authentic South Indian cuisine crafted from organic, farm-fresh ingredients. Every dosa, a love letter to your health.</p>
+      <div class="hero-cta">
+        <a href="#menu" class="btn-primary">Explore Menu</a>
+        <a href="#about" class="btn-ghost">Our Story</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><strong>50+</strong><span>Menu Items</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><strong>100%</strong><span>Organic Oils</span></div>
+        <div class="stat-sep"></div>
+        <div class="stat"><strong>20yr</strong><span>Legacy</span></div>
+      </div>
+    </div>
+    <div class="hero-scroll-hint">
+      <span>Scroll</span>
+      <div class="scroll-line"></div>
+    </div>
+  </section>
+
+  <!-- ========= MENU SECTION ========= -->
+  <section id="menu" class="menu-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Menu</span>
+        <h2>Fresh, Made to Order</h2>
+        <p>Handcrafted with seasonal produce and age-old recipes</p>
+      </div>
+
+      <!-- Search & Filter -->
+      <div class="menu-controls">
+        <div class="search-wrap">
+          <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+          <input type="text" id="searchInput" placeholder="Search dishes..." class="search-input"/>
+        </div>
+        <div class="filter-chips">
+          <button class="chip active" data-filter="all">All</button>
+          <button class="chip" data-filter="breakfast">Breakfast</button>
+          <button class="chip" data-filter="lunch">Lunch</button>
+          <button class="chip" data-filter="dinner">Dinner</button>
+          <button class="chip" data-filter="drinks">Drinks</button>
+          <button class="chip chip-organic" data-filter="organic">🌿 Organic</button>
+        </div>
+        <div class="sort-wrap">
+          <select id="sortSelect" class="sort-select">
+            <option value="default">Sort: Default</option>
+            <option value="low">Price: Low to High</option>
+            <option value="high">Price: High to Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="category-tabs" id="categoryTabs">
+        <button class="tab active" data-cat="all">All Items</button>
+        <button class="tab" data-cat="breakfast">🍛 Breakfast</button>
+        <button class="tab" data-cat="lunch">🍱 Lunch</button>
+        <button class="tab" data-cat="dinner">🌙 Dinner</button>
+        <button class="tab" data-cat="drinks">🥤 Drinks</button>
+        <button class="tab" data-cat="combo">🎁 Combos</button>
+      </div>
+
+      <!-- Menu Grid -->
+      <div class="menu-grid" id="menuGrid">
+        <!-- Dynamically rendered by JS -->
+      </div>
+      <div class="no-results" id="noResults" style="display:none;">
+        <p>No items found. Try a different search or filter.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= FEATURES ========= -->
+  <section id="features" class="features-section">
+    <div class="container">
+      <div class="section-header light">
+        <span class="section-label">Why Parigai</span>
+        <h2>Good Food, Honest Promise</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feat-icon">🌱</div>
+          <h3>100% Organic Ingredients</h3>
+          <p>We source directly from certified organic farms in Tamil Nadu — no pesticides, no compromises.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">🫙</div>
+          <h3>Cold-Pressed Oils Only</h3>
+          <p>All our cooking uses cold-pressed gingelly or coconut oil. Low oil variants available on request.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">⚡</div>
+          <h3>Ready in Under 8 Minutes</h3>
+          <p>Fresh batter prepared daily. Your dosa is served hot, crisp, and fast — every single time.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">💰</div>
+          <h3>Genuinely Affordable</h3>
+          <p>Healthy food shouldn't be a luxury. Our prices are fair — nutritious meals from just ₹60.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">🧑‍🍳</div>
+          <h3>Traditional Recipes</h3>
+          <p>Recipes passed down through generations, adapted only with better, healthier ingredients.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feat-icon">🌾</div>
+          <h3>Millet & Multi-grain</h3>
+          <p>We champion ancient grains — ragi, thinai, kambu — in modern, delicious preparations.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= ABOUT ========= -->
+  <section id="about" class="about-section">
+    <div class="container about-inner">
+      <div class="about-image-wrap">
+        <div class="about-img-placeholder">
+          <div class="about-img-overlay">
+            <span class="about-img-year">Since 2005</span>
+          </div>
+          <div class="about-visual">
+            <div class="leaf l1">🌿</div>
+            <div class="leaf l2">🍃</div>
+            <div class="leaf l3">🌱</div>
+            <div class="dosa-circle">
+              <span>Parigai</span>
+              <small>South Indian Kitchen</small>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <span class="section-label">Our Story</span>
+        <h2>A Kitchen Born from Grandmother's Recipes</h2>
+        <p>Parigai began with a simple belief: the most nourishing food is the food your grandmother made — measured not in milligrams but in love. We opened our doors in 2005 in Chennai with a menu of 12 items and a promise to never compromise on ingredients.</p>
+        <p>Today, we've grown — but our batter is still ground fresh every morning, our chutneys still made in small batches, and our dosa tawa still seasoned the old way. We've simply added more healthy, organic, and millet-based options to serve every kind of body and preference.</p>
+        <div class="about-pillars">
+          <div class="pillar">
+            <strong>Traditional</strong>
+            <span>Authentic South Indian flavours</span>
+          </div>
+          <div class="pillar">
+            <strong>Organic</strong>
+            <span>Farm-sourced, certified produce</span>
+          </div>
+          <div class="pillar">
+            <strong>Healthy</strong>
+            <span>Millets, low oil, wholesome</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= CONTACT ========= -->
+  <section id="contact" class="contact-section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Find Us</span>
+        <h2>Visit or Reach Out</h2>
+        <p>We'd love to see you at our table</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon">📞</div>
+          <h3>Call Us</h3>
+          <a href="tel:+914423456789">+91 44 2345 6789</a>
+          <a href="tel:+919876543210">+91 98765 43210</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">✉️</div>
+          <h3>Email</h3>
+          <a href="mailto:hello@parigai.in">hello@parigai.in</a>
+          <a href="mailto:orders@parigai.in">orders@parigai.in</a>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon">📍</div>
+          <h3>Location</h3>
+          <p>42, Anna Salai, Near Gemini Flyover,<br>Chennai — 600 002, Tamil Nadu</p>
+          <span class="hours">Open: 6:30 AM – 10:00 PM</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========= FOOTER ========= -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <span class="logo-leaf">🌿</span> Parigai
+        <p>Nourishing Chennai, one dosa at a time.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#home">Home</a>
+        <a href="#menu">Menu</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-note">
+        © 2025 Parigai South Indian Kitchen. Made with 🌿 in Chennai.
+      </div>
+    </div>
+  </footer>
+
+  <!-- ========= CART DRAWER ========= -->
+  <div class="cart-drawer" id="cartDrawer">
+    <div class="cart-header">
+      <h3>Your Order</h3>
+      <button class="cart-close" id="cartClose">✕</button>
+    </div>
+    <div class="cart-body" id="cartBody">
+      <!-- Dynamically rendered -->
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none;">
+      <div class="cart-total">
+        <span>Total</span>
+        <strong id="cartTotal">₹0</strong>
+      </div>
+      <button class="btn-primary full-width" onclick="alert('🙏 Thank you! Your order has been noted. We\'ll be ready soon.')">Place Order</button>
+    </div>
+  </div>
+  <div class="cart-backdrop" id="cartBackdrop"></div>
+
+  <!-- ========= TOAST ========= -->
+  <div class="toast" id="toast"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
